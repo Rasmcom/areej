@@ -396,14 +396,6 @@
         <div class="bg-white p-6 no-print">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
-                    <label class="block text-sm font-semibold mb-2">نوع المعلم:</label>
-                    <select id="teacherType" class="w-full">
-                        <option value="">اختر...</option>
-                        <option value="معلم">معلم</option>
-                        <option value="معلمة" selected>معلمة</option>
-                    </select>
-                </div>
-                <div>
                     <label class="block text-sm font-semibold mb-2">نوع التقرير:</label>
                     <select id="reportType" class="w-full" onchange="toggleReportType()">
                         <option value="">اختر نوع التقرير...</option>
@@ -750,13 +742,12 @@
         <div class="bg-white p-6 mt-4">
             <div class="footer-names-container flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-2 w-full sm:w-auto">
-                    <label id="teacherLabel" class="text-sm font-semibold">اسم المعلمة:</label>
+                    <label id="teacherLabel" class="text-sm font-semibold whitespace-nowrap">اسم المعلمة:</label>
                     <input type="text" id="teacherName" class="border border-gray-300 rounded px-3 py-1 flex-grow" placeholder="اكتب اسم المعلمة">
                 </div>
                 <div class="flex items-center gap-2 w-full sm:w-auto">
-                    <!-- اسم المديرة الثابت -->
-                    <label id="directorLabel" class="text-sm font-semibold">مديرة المدرسة:</label>
-                    <input type="text" id="directorName" class="border border-gray-300 rounded px-3 py-1 flex-grow" value="أريـــج عــبــدالـعـزيــز" readonly>
+                    <label id="directorLabel" class="text-sm font-semibold whitespace-nowrap">مديرة المدرسة:</label>
+                    <input type="text" id="directorName" class="border border-gray-300 rounded px-3 py-1 flex-grow font-bold" value="أريـــج عــبــدالـعـزيــز" readonly style="font-weight: bold;">
                 </div>
             </div>
             
@@ -787,24 +778,6 @@
                 weeklyReport.classList.add('hidden');
             }
         }
-
-        document.getElementById('teacherType').addEventListener('change', function() {
-            const teacherType = this.value;
-            const teacherLabel = document.getElementById('teacherLabel');
-            const teacherName = document.getElementById('teacherName');
-            
-            // Note: Director's name and label are now fixed in the HTML, so we only update the teacher's info.
-            if (teacherType === 'معلم') {
-                teacherLabel.textContent = 'اسم المعلم:';
-                teacherName.placeholder = 'اكتب اسم المعلم';
-            } else if (teacherType === 'معلمة') {
-                teacherLabel.textContent = 'اسم المعلمة:';
-                teacherName.placeholder = 'اكتب اسم المعلمة';
-            } else {
-                teacherLabel.textContent = 'اسم المعلم/ـة:';
-                teacherName.placeholder = 'اكتب اسم المعلم/ـة';
-            }
-        });
     </script>
 </body>
 </html>
